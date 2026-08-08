@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تيم تحقيق الأماني المعنوية | جمعية رسالة - RTC مدينة نصر</title>
+<link rel="icon" href="lamp2.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/el-messiri@5/400.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/el-messiri@5/700.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/cairo@5/400.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/cairo@5/600.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/cairo@5/800.css">
+<style>
+:root{
+  --bg0:#2b0713; --bg1:#400b1d; --base:#5c1229; --wine:#7a1f3d; --wine2:#8b2743;
+  --rose:#c4607e; --blush:#f0c9d4; --cream:#fdf3ee;
+  --ink:#fdf3ee; --muted:rgba(253,243,238,.72);
+  --card:rgba(255,255,255,.05); --stroke:rgba(255,255,255,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Cairo',sans-serif;color:var(--ink);line-height:1.8;background:var(--bg0);overflow-x:hidden}
+::selection{background:rgba(196,96,126,.5);color:#fff}
+h1,h2,h3,.btn,.brand-txt b,.cat{font-family:'El Messiri','Cairo',sans-serif}
+img,video{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+
+/* ====== خلفية بتدريجات الفيستي بتاع اللجنة ====== */
+.bg-grad{position:fixed;inset:0;z-index:-5;background:
+  radial-gradient(1100px 700px at 88% -8%, rgba(196,96,126,.22), transparent 60%),
+  radial-gradient(900px 650px at 6% 14%, rgba(255,255,255,.06), transparent 55%),
+  radial-gradient(1000px 900px at 50% 115%, rgba(139,39,67,.55), transparent 65%),
+  linear-gradient(180deg,#2b0713 0%, #5c1229 48%, #33081a 100%);}
+#sky{position:fixed;inset:0;z-index:-4;pointer-events:none}
+.aurora{position:fixed;border-radius:50%;filter:blur(95px);z-index:-3;pointer-events:none;opacity:.6}
+.a1{width:560px;height:560px;top:-160px;right:-140px;background:radial-gradient(circle,rgba(196,96,126,.32),transparent 65%);animation:drift1 19s ease-in-out infinite alternate}
+.a2{width:480px;height:480px;bottom:-160px;left:-120px;background:radial-gradient(circle,rgba(255,255,255,.09),transparent 65%);animation:drift2 24s ease-in-out infinite alternate}
+.a3{width:430px;height:430px;top:38%;left:55%;background:radial-gradient(circle,rgba(139,39,67,.5),transparent 65%);animation:drift3 27s ease-in-out infinite alternate}
+@keyframes drift1{to{transform:translate(-90px,70px) scale(1.12)}}
+@keyframes drift2{to{transform:translate(80px,-60px) scale(1.15)}}
+@keyframes drift3{to{transform:translate(-120px,-80px) scale(.92)}}
+.pattern{position:fixed;inset:0;z-index:-2;opacity:.05;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='1'%3E%3Cpath d='M48 10 L57 39 L86 48 L57 57 L48 86 L39 57 L10 48 L39 39 Z'/%3E%3Ccircle cx='48' cy='48' r='5'/%3E%3Cpath d='M48 34 L62 48 L48 62 L34 48 Z'/%3E%3C/g%3E%3C/svg%3E");}
+
+/* ====== الهيدر ====== */
+header{position:fixed;top:0;right:0;left:0;z-index:60;padding:16px 0;transition:.35s}
+header.scrolled{background:rgba(43,7,19,.82);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.14);padding:9px 0;box-shadow:0 10px 40px rgba(0,0,0,.35)}
+.nav-wrap{max-width:1180px;margin:auto;padding:0 22px;display:flex;align-items:center;gap:20px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .brand-logo{width:42px;height:42px;object-fit:contain;filter:drop-shadow(0 0 8px rgba(240,201,212,.6))}
+.brand-txt b{display:block;font-size:19px;color:#fff;line-height:1.3}
+.brand-txt small{display:block;font-size:11px;color:var(--muted)}
+.links{display:flex;gap:6px;margin-inline-start:auto}
+.links a{padding:9px 15px;border-radius:999px;font-size:14.5px;font-weight:600;color:var(--muted);transition:.25s}
+.links a:hover{color:#fff;background:rgba(255,255,255,.1)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:700;border-radius:999px;cursor:pointer;border:none;position:relative;overflow:hidden;transition:.28s;font-size:15px}
+.btn-primary{background:linear-gradient(135deg,#ffffff,#f6e3e9 45%,#e9c3cf);color:#5c1229;padding:14px 30px;box-shadow:0 8px 28px rgba(255,255,255,.22), inset 0 1px 0 #fff}
+.btn-primary::after{content:'';position:absolute;top:0;bottom:0;width:38%;right:-60%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.9),transparent);transform:skewX(20deg);transition:.6s}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(255,255,255,.3)}
+.btn-primary:hover::after{right:120%}
+.btn-ghost{border:1px solid rgba(255,255,255,.4);color:#fff;padding:13px 28px;background:rgba(255,255,255,.06)}
+.btn-ghost:hover{background:rgba(255,255,255,.15);transform:translateY(-3px)}
+.btn-sm{padding:10px 22px;font-size:14px}
+.burger{display:none;margin-inline-start:auto;width:44px;height:44px;border-radius:12px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.3);color:#fff;font-size:20px;cursor:pointer;transition:.25s}
+.burger:hover{background:rgba(255,255,255,.2)}
+.mobile-menu{display:none;position:absolute;top:100%;right:0;left:0;background:rgba(43,7,19,.97);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.18);padding:16px 22px 22px;flex-direction:column;gap:4px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{padding:12px 14px;border-radius:12px;font-weight:600;color:var(--ink)}
+.mobile-menu a:hover{background:rgba(255,255,255,.1);color:#fff}
+.mobile-menu .btn{margin-top:10px}
+
+/* ====== الهيرو + مشهد المارد المُعدل (بدون خلفية مربعة) ====== */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;padding:130px 22px 80px}
+.hero-inner{max-width:1180px;margin:auto;display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center;width:100%}
+.pill{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);color:var(--blush);border-radius:999px;padding:7px 18px;font-size:13px;font-weight:600;margin-bottom:22px}
+.hero h1{font-size:clamp(30px,4.4vw,54px);line-height:1.45;font-weight:700;color:#fff}
+.grad{background:linear-gradient(90deg,#ffffff,#f0c9d4 50%,#c4607e);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--muted);font-size:clamp(15px,1.6vw,19px);margin-top:18px}
+.lead b{color:var(--blush)}
+.magic{margin-top:18px;padding:16px 22px;border-radius:16px;border-inline-start:3px solid var(--rose);background:linear-gradient(90deg,rgba(255,255,255,.09),transparent 70%);color:var(--muted);font-size:15.5px}
+.magic b{color:#fff}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+
+.genie-scene{position:relative;min-height:560px;display:flex;align-items:center;justify-content:center}
+.frame{position:absolute;inset:4% 2%;pointer-events:none}
+.frame::before,.frame::after{content:'';position:absolute;width:74px;height:74px;border:2px solid rgba(255,255,255,.5)}
+.frame::before{top:0;right:0;border-left:none;border-bottom:none}
+.frame::after{bottom:0;left:0;border-right:none;border-top:none}
+.halo{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(380px,90%);aspect-ratio:1;border:1.5px dashed rgba(255,255,255,.3);border-radius:50%;animation:spin 16s linear infinite}
+@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.genie-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:75%;aspect-ratio:1;background:radial-gradient(circle,rgba(255,255,255,.22),rgba(196,96,126,.15) 45%,transparent 68%);filter:blur(26px);animation:glowPulse 5s ease-in-out infinite}
+@keyframes glowPulse{0%,100%{opacity:.75}50%{opacity:1}}
+
+/* تصميم متناسق للمارد والمصباح بدون مربعات خلفية وبدون تداخل مزعج */
+.genie-visual-container {
+  position: relative;
+  width: 100%;
+  max-width: 3000px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.genie-wrap{
+  position: absolute;
+  top: px;
+  width: 400px;
+  z-index: 3;
+  pointer-events: none;
+}
+.lamp-img{
+  position: absolute;
+  bottom: 35px;
+  width: 210px;
+  cursor: pointer;
+  transition:.3s;
+  z-index: 4;
+  filter:drop-shadow(0 12px 25px rgba(0,0,0,.6));
+}
+.lamp-img:hover{transform:scale(1.06)}
+
+.genie-rise{animation:genieRise 2.1s cubic-bezier(.2,.9,.3,1.15) .5s both;transform-origin:50% 100%}
+@keyframes genieRise{from{transform:translateY(85%) scale(.25);opacity:0}to{transform:none;opacity:1}}
+.genie-pop.pop{animation:geniePop .9s cubic-bezier(.3,1.5,.4,1)}
+@keyframes geniePop{0%{transform:scale(.55) rotate(-8deg)}60%{transform:scale(1.12) rotate(5deg)}100%{transform:scale(1)}}
+.genie{width:100%;animation:genieFloat 5s ease-in-out 2.7s infinite;}
+@keyframes genieFloat{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-12px) rotate(1.5deg)}}
+
+.smoke{position:absolute;bottom:130px;left:50%;width:26px;height:26px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.6),rgba(255,255,255,0) 70%);filter:blur(6px);opacity:0;animation:smokeRise 4.2s linear infinite;pointer-events:none;z-index:2}
+@keyframes smokeRise{0%{transform:translate(-50%,0) scale(.6);opacity:0}15%{opacity:.7}100%{transform:translate(calc(-50% + var(--dx)),-220px) scale(2.3);opacity:0}}
+
+.spark{position:absolute;font-size:24px;animation:floaty 4s ease-in-out infinite;filter:drop-shadow(0 0 10px rgba(255,255,255,.8));pointer-events:none}
+.s1{top:12%;right:10%; z-index:5}
+.s2{bottom:22%;left:10%;animation-delay:1.2s; z-index:5}
+.s3{top:45%;left:2%;animation-delay:2.1s;font-size:19px; z-index:5}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+.lamp-hint{position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);font-size:12.5px;color:var(--muted);white-space:nowrap;z-index:5}
+.burst-star{position:absolute;font-size:22px;pointer-events:none;animation:burst 1.5s ease-out forwards;z-index:10}
+@keyframes burst{from{transform:translate(0,0) scale(.5);opacity:1}to{transform:translate(var(--dx),var(--dy)) scale(1.35);opacity:0}}
+.scroll-hint{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:var(--blush);font-size:26px;animation:bounce 1.8s infinite;opacity:.8}
+@keyframes bounce{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,10px)}}
+
+/* ====== الأقسام ====== */
+section{padding:95px 22px;position:relative;scroll-margin-top:90px}
+.sec-head{text-align:center;max-width:780px;margin:0 auto 54px}
+.kicker{display:inline-block;font-size:13.5px;font-weight:700;color:var(--blush);border:1px dashed rgba(255,255,255,.45);border-radius:999px;padding:6px 20px;margin-bottom:16px;background:rgba(255,255,255,.06)}
+.sec-head h2{font-size:clamp(26px,3.6vw,42px);font-weight:700;color:#fff}
+.orn{margin-top:14px;color:var(--blush);letter-spacing:14px;opacity:.7;font-size:13px}
+
+.about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1100px;margin:auto}
+.feature{background:var(--card);border:1px solid var(--stroke);border-radius:24px;padding:36px 28px;text-align:center;backdrop-filter:blur(8px);transition:.35s;position:relative;overflow:hidden}
+.feature::before{content:'';position:absolute;inset:0;background:radial-gradient(420px 200px at 50% -40px,rgba(255,255,255,.12),transparent 70%);opacity:0;transition:.35s}
+.feature:hover{transform:translateY(-9px);border-color:rgba(255,255,255,.45);box-shadow:0 20px 50px rgba(0,0,0,.45)}
+.feature:hover::before{opacity:1}
+.f-icon{font-size:42px;width:88px;height:88px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;background:linear-gradient(145deg,rgba(255,255,255,.14),rgba(139,39,67,.4));border:1px solid rgba(255,255,255,.28);border-radius:26px;transition:.35s}
+.feature:hover .f-icon{transform:scale(1.08) rotate(-4deg)}
+.feature h3{font-size:20px;color:#fff;margin-bottom:10px}
+.feature p{color:var(--muted);font-size:14.5px}
+
+.wish-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1180px;margin:auto}
+.wcard{background:var(--card);border:1px solid var(--stroke);border-radius:20px;padding:20px 16px;text-align:center;backdrop-filter:blur(8px);transition:.35s;overflow:hidden;display:flex;flex-direction:column;align-items:center}
+.wcard:hover{transform:translateY(-7px) scale(1.02);border-color:rgba(240,201,212,.55);box-shadow:0 16px 44px rgba(0,0,0,.45),0 0 30px rgba(196,96,126,.2)}
+.w-icon{font-size:36px;display:block;transition:.35s}
+.wcard-img{width:100%;height:160px;object-fit:cover;border-radius:12px;margin-bottom:12px;transition:.35s}
+.wcard:hover .wcard-img{transform:scale(1.05)}
+.wcard:hover .w-icon{transform:scale(1.2) rotate(-6deg)}
+.wcard h3{font-size:16.5px;color:var(--blush);margin:8px 0 6px}
+.wcard p{font-size:12.8px;color:var(--muted);line-height:1.7}
+
+/* ====== شبكة عرض الفيديوهات الطولية ====== */
+.moments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.video-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.video-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  background-color: #000;
+  overflow: hidden;
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.v-cap {
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.25);
+  text-align: right;
+}
+
+.v-cap b {
+  display: block;
+  font-size: 1.05rem;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.v-cap small {
+  color: rgba(253, 243, 238, 0.72);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  display: block;
+}
+
+.cats{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;max-width:920px;margin:0 auto 34px}
+.cat{background:linear-gradient(135deg,rgba(255,255,255,.14),rgba(255,255,255,.05));border:1px solid rgba(255,255,255,.28);padding:10px 24px;border-radius:16px;font-weight:700;color:#fff;font-size:15px;transition:.3s}
+.cat:hover{transform:translateY(-4px);border-color:var(--blush);box-shadow:0 10px 26px rgba(0,0,0,.35)}
+.mq{overflow:hidden;margin:14px auto;max-width:1180px;padding:6px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.mq-track{display:flex;gap:14px;width:max-content;will-change:transform;animation:mqR 46s linear infinite}
+.mq.rev .mq-track{animation:mqL 54s linear infinite}
+.mq:hover .mq-track{animation-play-state:paused}
+@keyframes mqR{from{transform:translateX(0)}to{transform:translateX(50%)}}
+@keyframes mqL{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.chip{white-space:nowrap;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.07);padding:10px 22px;border-radius:999px;font-size:14.5px;font-weight:600;display:flex;gap:99px;align-items:center;transition:.3s}
+.chip b{color:var(--blush)}
+.chip:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.55);transform:scale(1.04)}
+.list-note{text-align:center;margin-top:34px;color:var(--muted);font-size:15px}
+.list-note b{color:var(--blush)}
+.list-cta{text-align:center;margin-top:22px}
+
+.form-card{max-width:700px;margin:auto;background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.24);border-radius:30px;padding:48px 40px;backdrop-filter:blur(14px);box-shadow:0 34px 90px rgba(0,0,0,.5);position:relative;overflow:hidden}
+.form-card::before{content:'🪔';position:absolute;font-size:150px;opacity:.07;top:-20px;left:-12px;transform:rotate(-14deg);pointer-events:none}
+.form-card label{display:block;font-weight:700;margin:20px 0 8px;color:var(--blush);font-size:15px}
+.form-card input,.form-card textarea{width:100%;background:rgba(43,7,19,.55);border:1px solid rgba(255,255,255,.22);border-radius:15px;padding:14px 18px;color:var(--ink);font-family:inherit;font-size:15px;transition:.3s}
+.form-card input:focus,.form-card textarea:focus{outline:none;border-color:var(--blush);box-shadow:0 0 0 4px rgba(240,201,212,.16)}
+.form-card ::placeholder{color:rgba(253,243,238,.35)}
+.form-card textarea{resize:vertical;min-height:120px}
+.submit{width:100%;margin-top:28px;font-size:17px;padding:16px}
+.success{text-align:center;padding:26px 0;position:relative}
+.success .big{font-size:70px;display:inline-block;animation:floaty 3s ease-in-out infinite;filter:drop-shadow(0 0 24px rgba(255,255,255,.5))}
+.success h3{font-size:26px;color:#fff;margin:14px 0 8px}
+.success p{color:var(--muted)}
+.volun{text-align:center;margin-top:30px}
+
+footer{border-top:1px solid rgba(255,255,255,.15);padding:40px 22px;text-align:center;background:rgba(43,7,19,.7);backdrop-filter:blur(10px)}
+.footer-social{display:flex;justify-content:center;gap:15px;margin-top:12px;flex-wrap:wrap}
+.footer-social a{color:var(--blush);font-size:14px;font-weight:600;padding:6px 14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.2);border-radius:999px;transition:.3s}
+.footer-social a:hover{background:rgba(255,255,255,.15);color:#fff;transform:translateY(-2px)}
+footer .heart{font-size:15px;color:var(--muted)}
+footer .heart b{color:#ff7a9c}
+footer .sign{margin-top:8px;font-family:'El Messiri';color:var(--blush);font-size:15px}
+
+#toast{position:fixed;bottom:28px;left:50%;transform:translate(-50%,20px);background:rgba(64,11,29,.96);border:1px solid rgba(255,255,255,.4);color:var(--blush);padding:13px 28px;border-radius:999px;opacity:0;pointer-events:none;transition:.35s;z-index:99;font-weight:700;box-shadow:0 12px 44px rgba(0,0,0,.55);backdrop-filter:blur(8px)}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:1020px){
+  .hero-inner{grid-template-columns:1fr;text-align:center;gap:60px}
+  .hero-cta{justify-content:center}
+  .links{display:none}
+  .nav-cta{display:none}
+  .burger{display:block}
+  .about-grid{grid-template-columns:1fr;max-width:540px}
+  .wish-grid{grid-template-columns:repeat(2,1fr)}
+  .genie-scene{min-height:500px}
+}
+@media(max-width:640px){
+  .wish-grid{grid-template-columns:1fr}
+  .moments-grid{grid-template-columns:1fr;gap:20px;padding:5px}
+  .form-card{padding:36px 24px}
+  section{padding:70px 18px}
+  .brand-txt small{display:none}
+  .genie-scene{min-height:420px}
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  .genie-rise{opacity:1}
+}
+.whatsapp-btn {
+  background-color: #25D366;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.whatsapp-btn:hover {
+  background-color: #20ba5a;
+  transform: scale(1.05);
+}
+
+.whatsapp-btn i {
+  font-size: 22px;
+}
+</style>
+</head>
+<body>
+
+<div class="bg-grad"></div>
+<canvas id="sky"></canvas>
+<div class="aurora a1"></div>
+<div class="aurora a2"></div>
+<div class="aurora a3"></div>
+<div class="pattern"></div>
+
+<header id="topbar">
+  <div class="nav-wrap">
+    <a class="brand" href="#home">
+      <img class="brand-logo" src="lamp2.png" alt="لوجو نترك أثراً">
+      <span class="brand-txt"><b>نترك أثراً 💫</b><small>لجنة تحقيق الأماني المعنوية · رسالة RTC مدينة نصر</small></span>
+    </a>
+    <nav class="links">
+      <a href="#about">يعني إيه أمنية؟</a>
+      <a href="#wishes">أماني حققناها</a>
+      <a href="#moments">لحظاتنا</a>
+      <a href="#list">كل الأماني</a>
+    </nav>
+    <a class="btn btn-primary btn-sm nav-cta" href="#wish-form">اطلب أمنيتك ✨</a>
+    <button class="burger" id="burger" aria-label="القائمة">☰</button>
+  </div>
+  <div class="mobile-menu" id="mMenu">
+    <a href="#about">يعني إيه أمنية معنوية؟</a>
+    <a href="#wishes">أماني حققناها 💫</a>
+    <a href="#moments">لحظاتنا المبهجة 🎬</a>
+    <a href="#list">قايمة الأماني 🎁</a>
+    <a class="btn btn-primary" href="#wish-form">اطلب أمنيتك الآن 🪔</a>
+  </div>
+</header>
+
+<main>
+<!-- الهيرو -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-txt reveal">
+      <span class="pill">جمعية رسالة للأعمال الخيرية ✦ مجاناً تماماً</span>
+      <h1>سمعت عن <span class="grad">المصباح السحري</span> قبل كده؟<br>بس عمرك صادفته بجد؟ 🪔</h1>
+      <p class="lead">طب لو قلتلك إننا تيم بنحقق كل الأماني <b>المعنوية</b> مجاناً تماماً وبدون أي مقابل!</p>
+      <p class="magic"><b>شوبيك لوبيك! ✨</b> تيم تحقيق أماني معنوية بين إيديك.. احكيلنا عن حلمك المعنوي وإحنا معاك خطوة بخطوة.</p>
+      <div class="hero-cta">
+        <a href="#wish-form" class="btn btn-primary">امسح المصباح واطلب أمنيتك 🪄</a>
+        <a href="#about" class="btn btn-ghost">يعني إيه أمنية معنوية؟</a>
+      </div>
+    </div>
+
+    <div class="hero-art reveal">
+      <div class="genie-scene" id="scene">
+        <div class="frame"></div>
+        <div class="halo"></div>
+        <div class="genie-glow"></div>
+        
+        <!-- الحاوية المُعدلة لتنظيم المارد والأدخنة والمصباح بشكل سليم -->
+        <div class="genie-visual-container">
+          <span class="smoke" style="--dx:-36px;animation-delay:0s"></span>
+          <span class="smoke" style="--dx:28px;animation-delay:.7s"></span>
+          <span class="smoke" style="--dx:-15px;animation-delay:1.4s"></span>
+          <span class="smoke" style="--dx:42px;animation-delay:2.1s"></span>
+          <span class="smoke" style="--dx:-48px;animation-delay:2.8s"></span>
+          
+          <div class="genie-wrap">
+            <div class="genie-rise">
+              <div class="genie-pop" id="geniePop">
+                <img class="genie" src="mard.png" alt="المارد">
+              </div>
+            </div>
+          </div>
+
+          
+        </div>
+
+        <span class="spark s1">✨</span><span class="spark s2">⭐</span><span class="spark s3">✨</span>
+        <p class="lamp-hint"></p>
+      </div>
+    </div>
+  </div>
+  <a class="scroll-hint" href="#about" aria-label="انزل لتحت">⌄</a>
+</section>
+<!-- يعني إيه أمنية معنوية -->
+<section id="about">
+  <div class="sec-head reveal">
+    <span class="kicker">بنبه تاني وتالت أهو! 😄</span>
+    <h2>يعني إيه <span class="grad">أمنية معنوية</span>؟</h2>
+    <div class="orn">✦ ✦ ✦</div>
+  </div>
+  <div class="about-grid" data-stagger>
+    <div class="feature reveal"><div class="f-icon">💪</div><h3>جهد جسدي.. مش مبلغ مادي</h3><p>الأمنية المعنوية مش محتاجة الفلوس، دي محتاجة مجهود، وجود، واهتمام صادق بنقدمهولك من القلب.</p></div>
+    <div class="feature reveal"><div class="f-icon">🌱</div><h3>أثر كبير وممتد</h3><p>حاجة بسيطة جداً وصغيرة في حجمها، بس أثرها عميق جداً وبيعيش ويغير كتير.</p></div>
+    <div class="feature reveal"><div class="f-icon">🔥</div><h3>تغيّر شخصيتك للأفضل</h3><p>حاجة تحرك وتصحي حاجة جواك، وتشجعك تكون نسخة أفضل من نفسك في الحياة.</p></div>
+  </div>
+</section>
+
+<!-- أماني حققناها -->
+<section id="wishes">
+  <div class="sec-head reveal">
+    <span class="kicker">نترك أثراً في كل خطوة 💛</span>
+    <h2>أماني حققناها <span class="grad">بالفعل</span> 💫</h2>
+    <div class="orn">✦ ✦ ✦</div>
+  </div>
+  <div class="wish-grid" data-stagger>
+    <div class="wcard reveal">
+      <img src="wish.jpeg" alt="توفير مصادر القراءة" class="wcard-img">
+      <h3>توفير مصادر القراءة</h3>
+      <p>إهداء كتب متنوعة لتشجيع القراءة والتطوير الذاتي.</p>
+    </div>
+    <div class="wcard reveal">
+      <img src="wish2.jpeg" alt="إهداء كتب وروايات" class="wcard-img">
+      <h3>إهداء كتب وروايات</h3>
+      <p>توفير وتغليف مجموعة من الكتب القيمة وتوصيلها.</p>
+    </div>
+    <div class="wcard reveal">
+      <img src="wish3.jpeg" alt="يوم مبهج مع الأطفال" class="wcard-img">
+      <h3>يوم مبهج مع الأطفال</h3>
+      <p>قضاء وقت ممتع ورسم البسمة على وجوه الأطفال.</p>
+    </div>
+    <div class="wcard reveal">
+      <img src="wish4.jpeg" alt="ورد ولفتة معنوية" class="wcard-img">
+      <h3>ورد ولفتة معنوية</h3>
+      <p>إدخال السرور ببوكيه ورد وهدية بسيطة أثرها كبير.</p>
+    </div>
+    <div class="wcard reveal">
+      <img src="wish5.jpeg" alt="دعم ومرافقة الامتحانات" class="wcard-img">
+      <h3>دعم ومرافقة الامتحانات</h3>
+      <p>التواجد والدعم المعنوي أثناء الامتحانات واللحظات الصعبة.</p>
+    </div>
+    <div class="wcard reveal">
+      <img src="wish6.jpeg" alt="صحيان صلاة الفجر" class="wcard-img">
+      <h3>صحيان صلاة الفجر</h3>
+      <p>متابعة وتشجيع يومي للالتزام بالعبادات والعادات الإيجابية.</p>
+    </div>
+    <div class="wcard reveal">
+      <img src="wish8.jpeg" alt="تكريم وإنجازات" class="wcard-img">
+      <h3>احتفال وتكريم</h3>
+      <p>مشاركة لحظات النجاح والتخرج ودعم الأبطال.</p>
+    </div>
+    <div class="wcard reveal">
+      <img src="wish10.jpeg" alt="رسومات ولفتات بسيطة" class="wcard-img">
+      <h3>هدايا ورسومات معنوية</h3>
+      <p>لمسات فنية بسيطة بتسعد القلوب وتترك أثر جميل.</p>
+    </div>
+  </div>
+</section>
+ 
+<!-- اللحظات -->
+<section id="moments">
+  <div class="sec-head reveal">
+    <span class="kicker">عيش اللحظة معانا 🎥</span>
+    <h2>لحظاتنا <span class="grad">المبهجة</span> 🎬</h2>
+    <div class="orn">✦ ✦ ✦</div>
+  </div>
+  <div class="moments-grid" data-stagger>
+    
+    <div class="video-card reveal">
+      <div class="video-wrapper">
+        <video src="vwish1.mp4" poster="thumb1.jpg" playsinline controls></video>
+      </div>
+      <div class="v-cap">
+        <b>لحظات سعيدة 🎬</b>
+        <small>توثيق لحظات مبهجة أثناء تحقيق إحدى الأماني.</small>
+      </div>
+    </div>
+
+    <div class="video-card reveal">
+      <div class="video-wrapper">
+        <video src="vwish2.mp4" poster="thumb2.jpg" playsinline controls></video>
+      </div>
+      <div class="v-cap">
+        <b>فرحة تحقيق الأماني ✨</b>
+        <small>مقطع مميز يوضح أثر الفرحة في قلوب المستفيدين.</small>
+      </div>
+    </div>
+
+    <div class="video-card reveal">
+      <div class="video-wrapper">
+        <video src="vwish3.mp4" poster="thumb3.jpg" playsinline controls></video>
+      </div>
+      <div class="v-cap">
+        <b>فعاليات ونشاط التيم 🌟</b>
+        <small>جانب من مجهودات فريق تحقيق الأماني على الأرض.</small>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- قايمة الأماني -->
+<section id="list">
+  <div class="sec-head reveal">
+    <span class="kicker">القايمة بتكبر كل يوم 🌙</span>
+    <h2>تعالَ فرّجك على الأماني اللي <span class="grad">بنحققها</span> 🎁</h2>
+  </div>
+  <div class="cats reveal">
+    <span class="cat">🤍 دعم نفسي واجتماعي</span>
+    <span class="cat">🌱 تشجيع وعادات</span>
+    <span class="cat">🚶 خروجات ومشاوير</span>
+    <span class="cat">🎁 هدايا ولمسات بسيطة</span>
+    <span class="cat">🛠️ تطوير وخدمات كبيرة</span>
+  </div>
+  <div class="mq reveal"><div class="mq-track" id="mqTrack1"></div></div>
+  <div class="mq rev reveal"><div class="mq-track" id="mqTrack2"></div></div>
+  <p class="list-note reveal">وغيرها كتير.. لو أمنيتك مش في القايمة <b>اطلبها وإحنا نفكر معاك!</b> ✨</p>
+  <div class="list-cta reveal"><a href="#wish-form" class="btn btn-primary">اطلب أمنيتك دلوقتي 🪔</a></div>
+</section>
+
+<!-- الفورم -->
+<section class="form-sec" id="wish-form">
+  <div class="sec-head reveal">
+    <span class="kicker">المصباح مستنيك 😌💫</span>
+    <h2>اطلب أمنيتك <span class="grad">الآن</span> 🪔</h2>
+  </div>
+  <div class="form-card reveal" id="formCard">
+    <form id="wishForm" novalidate>
+      <label for="fName">الاسم الكريم</label>
+      <input id="fName" type="text" placeholder="اكتب اسمك هنا.." autocomplete="name">
+      <label for="fPhone">رقم الواتساب / التواصل</label>
+      <input id="fPhone" type="tel" inputmode="tel" placeholder="01xxxxxxxxx">
+      <label for="fWish">احكيلنا تفاصيل أمنيتك المعنوية</label>
+      <textarea id="fWish" placeholder="مثلاً: نفسي حد يساعدني أذاكر للامتحان.. نفسي حد يسمعني.. نفسي أتعلم حرفة.."></textarea>
+      <button type="submit" class="btn btn-primary submit">إرسال الأمنية للمصباح 🚀🪔</button>
+    </form>
+    <div class="success" id="successWrap" hidden>
+      <span class="big">🧞‍♂️</span>
+      <h3>أمنيتك وصلت للمصباح! ✨</h3>
+      <p>هنقرأها كويس جداً وهنتواصل معاك في أقرب وقت.. جهز نفسك للسحر 💛</p>
+      <br>
+      <button class="btn btn-ghost" id="againBtn">إرسال أمنية تانية 🪄</button>
+    </div>
+  </div>
+  <div class="volun reveal">
+    <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://wa.me/201200612366?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%AD%D8%A7%D8%A8%D8%A8%20%D8%A3%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%8BD8%A7%D9%84%D8%AA%D9%8A%D9%85%20%2F%20%D8%AD%D8%A7%D8%A8%D8%A8%20%D8%A3%D8%AA%D8%B7%2F%D9%85%D8%B9%D8%A7%D9%83%D9%85%20%F0%9F%92%AB">تواصل معنا / انضم كمتطوع 💫</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <p class="heart">صُنع بكل حب <b>❤️</b> بواسطة نشاط RTC - جمعية رسالة فرع مدينة نصر</p>
+  <p class="sign">لجنة تحقيق الأماني المعنوية — نترك أثراً 💫</p>
+  <p class="sign" style="margin-top: 10px; font-size: 16px;">Designed & Developed with by <b>Amira ALaa</b></p>
+  <div class="footer-social">
+    <a href="https://github.com/marro2422006-boop" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://www.tiktok.com/@amiradeana921?_r=1&_t=ZS-98iUNfzo1kA" target="_blank" rel="noopener">TikTok</a>
+    <a href="mailto:marro2422006@gmail.com">Email</a>
+  </div>
+</footer>
+
+<div id="toast"></div>
+
+<script>
+/* ====== سماء النجوم بدرجات الفيستي ====== */
+(function(){
+  var cv=document.getElementById('sky'),ctx=cv.getContext('2d'),W,H,stars=[],motes=[];
+  function resize(){W=cv.width=innerWidth;H=cv.height=innerHeight;}
+  resize();addEventListener('resize',resize);
+  var n=Math.min(210,Math.floor(innerWidth*innerHeight/9000));
+  for(var i=0;i<n;i++){stars.push({x:Math.random(),y:Math.random(),r:Math.random()*1.3+.4,p:Math.random()*6.28,s:.4+Math.random()*1.2,g:Math.random()<.3});}
+  for(var j=0;j<24;j++){motes.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:6+Math.random()*14,v:.12+Math.random()*.3,p:Math.random()*6.28,a:.12+Math.random()*.28});}
+  var spr=document.createElement('canvas');spr.width=spr.height=48;
+  var sg=spr.getContext('2d'),rg=sg.createRadialGradient(24,24,0,24,24,24);
+  rg.addColorStop(0,'rgba(255,255,255,.95)');rg.addColorStop(.4,'rgba(240,201,212,.4)');rg.addColorStop(1,'rgba(240,201,212,0)');
+  sg.fillStyle=rg;sg.fillRect(0,0,48,48);
+  var reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function draw(t){
+    ctx.clearRect(0,0,W,H);
+    for(var i=0;i<stars.length;i++){var s=stars[i];
+      ctx.globalAlpha=.3+.7*Math.abs(Math.sin(t*.001*s.s+s.p));
+      ctx.fillStyle=s.g?'#f0c9d4':'#ffffff';
+      ctx.beginPath();ctx.arc(s.x*W,s.y*H,s.r,0,6.283);ctx.fill();}
+    for(var m=0;m<motes.length;m++){var o=motes[m];
+      o.y-=o.v;o.x+=Math.sin(t*.0008+o.p)*.3;
+      if(o.y<-20){o.y=H+20;o.x=Math.random()*W;}
+      ctx.globalAlpha=o.a*(.6+.4*Math.sin(t*.002+o.p));
+      ctx.drawImage(spr,o.x-o.r,o.y-o.r,o.r*2,o.r*2);}
+    ctx.globalAlpha=1;
+    if(!reduced)requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+})();
+
+/* ====== الهيدر والقائمة + تحسين سكرول الموبايل ====== */
+var topbar=document.getElementById('topbar');
+addEventListener('scroll',function(){topbar.classList.toggle('scrolled',scrollY>40);},{passive:true});
+var burger=document.getElementById('burger'),mMenu=document.getElementById('mMenu');
+
+burger.addEventListener('click',function(){
+  mMenu.classList.toggle('open');
+  var isOpen = mMenu.classList.contains('open');
+  burger.textContent = isOpen ? '✕' : '☰';
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+});
+
+mMenu.querySelectorAll('a').forEach(function(a){
+  a.addEventListener('click',function(){
+    mMenu.classList.remove('open');
+    burger.textContent='☰';
+    document.body.style.overflow = '';
+  });
+});
+
+/* ====== الشريط المتحرك ====== */
+var listA=['نصيحة صادقة','نسمع حد في مكالمة','إقناع حد بحاجة','صلح عائلات وطلاق','حضور مناسبة','حضور امتحان مع حد ودعمه','صحيان صلاة الفجر (5 أيام)','صحيان الفجر + إرسال مصادر','المذاكرة لحد (3 أيام أونلاين)','المذاكرة لحد (3 أيام أوفلاين)','سيرش أو جمع معلومة','تقديم معلومة عن مساعدة برسالة','خروجة بسيطة','خروجة بسفر','توصيل مستفيد بدكتور','مشوار للدكتور'];
+var listB=['مشوار عام قضاء حاجة','زيارات دور مسنين وأيتام','تخليص ورق ومساعدات إدارية','ورد أو شوكولاتة','هدايا أبطال التحدي','أمنية مادية بسيطة (في حدود 200ج)','نشر جروب ودعمه','تصميم وتنفيذ لوجو','تعليم حرفة','تعليم حرفة صعبة','تعليم سواقة','تسكين وظيفة أو مساعدة عمل','طلب زواج ومساعدة فيه','تنظيم إيفنت كامل خارج رسالة'];
+function fillTrack(id,items){
+  var t=document.getElementById(id);
+  var html=items.map(function(i){return '<span class="chip"><b>✦</b>'+i+'</span>';}).join('');
+  t.innerHTML=html+html;
+}
+fillTrack('mqTrack1',listA);fillTrack('mqTrack2',listB);
+
+/* ====== الظهور عند السكرول ====== */
+document.querySelectorAll('[data-stagger]').forEach(function(p){
+  Array.prototype.forEach.call(p.children,function(c,i){c.style.transitionDelay=(i*70)+'ms';});
+});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+
+/* ====== التوست + انفجار النجوم ====== */
+var toastEl=document.getElementById('toast'),toastT;
+function toast(msg){toastEl.textContent=msg;toastEl.classList.add('show');clearTimeout(toastT);toastT=setTimeout(function(){toastEl.classList.remove('show');},2600);}
+function burst(container,topPct){
+  var chars=['✨','⭐','💫','🌟'];
+  for(var i=0;i<20;i++){
+    var s=document.createElement('span');s.className='burst-star';s.textContent=chars[i%4];
+    s.style.setProperty('--dx',(Math.random()*300-150)+'px');
+    s.style.setProperty('--dy',(-40-Math.random()*230)+'px');
+    s.style.animationDelay=(Math.random()*.3)+'s';
+    s.style.left=(45+Math.random()*10)+'%';
+    s.style.top=topPct+'%';
+    container.appendChild(s);
+    setTimeout(function(el){return function(){el.remove();};}(s),1900);
+  }
+}
+
+/* ====== تفاعل المصباح مع المارد ====== */
+var lampImg=document.getElementById('lampImg'),scene=document.getElementById('scene'),geniePop=document.getElementById('geniePop');
+lampImg.addEventListener('click',function(){
+  geniePop.classList.remove('pop');void geniePop.offsetWidth;geniePop.classList.add('pop');
+  burst(scene,38);
+  toast('شوبيك لوبيك! المارد ظهر 😄✨');
+});
+
+/* ====== الفورم مع فحص الواتساب ====== */
+var form=document.getElementById('wishForm'),successWrap=document.getElementById('successWrap'),formCard=document.getElementById('formCard');
+form.addEventListener('submit',function(e){
+  e.preventDefault();
+  var n=document.getElementById('fName').value.trim(),
+      p=document.getElementById('fPhone').value.trim(),
+      w=document.getElementById('fWish').value.trim();
+  
+  if(!n||!p||!w){toast('من فضلك كمّل كل البيانات الأول 🙏');return;}
+  
+  var phoneRegex = /^01[0125][0-9]{8}$/;
+  if(!phoneRegex.test(p)){
+    toast('من فضلك أدخل رقم واتساب صحيح (مثال: 01012345678) 📱');
+    return;
+  }
+
+  form.hidden=true;successWrap.hidden=false;burst(formCard,42);
+  toast('تم إرسال أمنيتك بنجاح 🪔✨');
+});
+document.getElementById('againBtn').addEventListener('click',function(){
+  form.reset();successWrap.hidden=true;form.hidden=false;
+});
+</script>
+</body>
+</html>
