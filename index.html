@@ -391,7 +391,7 @@ footer .sign{margin-top:8px;font-family:'El Messiri';color:var(--blush);font-siz
             </div>
           </div>
 
-          
+          <img id="lampImg" class="lamp-img" src="lamp.png" alt="المصباح السحري">
         </div>
 
         <span class="spark s1">✨</span><span class="spark s2">⭐</span><span class="spark s3">✨</span>
@@ -536,11 +536,11 @@ footer .sign{margin-top:8px;font-family:'El Messiri';color:var(--blush);font-siz
   <div class="form-card reveal" id="formCard">
     <form id="wishForm" novalidate>
       <label for="fName">الاسم الكريم</label>
-      <input id="fName" type="text" placeholder="اكتب اسمك هنا.." autocomplete="name">
+      <input id="fName" name="الاسم" type="text" placeholder="اكتب اسمك هنا.." autocomplete="name">
       <label for="fPhone">رقم الواتساب / التواصل</label>
-      <input id="fPhone" type="tel" inputmode="tel" placeholder="01xxxxxxxxx">
+      <input id="fPhone" name="رقم الواتساب" type="tel" inputmode="tel" placeholder="01xxxxxxxxx">
       <label for="fWish">احكيلنا تفاصيل أمنيتك المعنوية</label>
-      <textarea id="fWish" placeholder="مثلاً: نفسي حد يساعدني أذاكر للامتحان.. نفسي حد يسمعني.. نفسي أتعلم حرفة.."></textarea>
+      <textarea id="fWish" name="الأمنية" placeholder="مثلاً: نفسي حد يساعدني أذاكر للامتحان.. نفسي حد يسمعني.. نفسي أتعلم حرفة.."></textarea>
       <button type="submit" class="btn btn-primary submit">إرسال الأمنية للمصباح 🚀🪔</button>
     </form>
     <div class="success" id="successWrap" hidden>
@@ -657,31 +657,44 @@ function burst(container,topPct){
 
 /* ====== تفاعل المصباح مع المارد ====== */
 var lampImg=document.getElementById('lampImg'),scene=document.getElementById('scene'),geniePop=document.getElementById('geniePop');
-lampImg.addEventListener('click',function(){
-  geniePop.classList.remove('pop');void geniePop.offsetWidth;geniePop.classList.add('pop');
-  burst(scene,38);
-  toast('شوبيك لوبيك! المارد ظهر 😄✨');
-});
+if(lampImg){
+  lampImg.addEventListener('click',function(){
+    geniePop.classList.remove('pop');void geniePop.offsetWidth;geniePop.classList.add('pop');
+    burst(scene,38);
+    toast('شوبيك لوبيك! المارد ظهر 😄✨');
+  });
+}
+/* ====== الفورم مع ربط Google Sheets ====== */
+var form = document.getElementById('wishForm');
+var successWrap = document.getElementById('successWrap');
+var formCard = document.getElementById('formCard');
+// ⚠️ حط هنا رابط الـ Web App اللي هتاخده من Apps Script بعد النشر (خطوات النشر تحت)
+var scriptURL = 'https://script.google.com/macros/s/AKfycbxzhM33SQnh17R5EO5GWSjecuWVTfqwjNrT1BeL0XlrcP7fkkb2mnAnkTstA3GXvYpfJA/exec';
 
-/* ====== الفورم مع فحص الواتساب ====== */
-var form=document.getElementById('wishForm'),successWrap=document.getElementById('successWrap'),formCard=document.getElementById('formCard');
-form.addEventListener('submit',function(e){
+form.addEventListener('submit', function(e){
   e.preventDefault();
-  var n=document.getElementById('fName').value.trim(),
-      p=document.getElementById('fPhone').value.trim(),
-      w=document.getElementById('fWish').value.trim();
-  
-  if(!n||!p||!w){toast('من فضلك كمّل كل البيانات الأول 🙏');return;}
-  
-  var phoneRegex = /^01[0125][0-9]{8}$/;
-  if(!phoneRegex.test(p)){
-    toast('من فضلك أدخل رقم واتساب صحيح (مثال: 01012345678) 📱');
-    return;
-  }
 
-  form.hidden=true;successWrap.hidden=false;burst(formCard,42);
-  toast('تم إرسال أمنيتك بنجاح 🪔✨');
+  var n = document.getElementById('fName').value.trim(),
+      p = document.getElementById('fPhone').value.trim(),
+      w = document.getElementById('fWish').value.trim();
+
+  if(!n || !p || !w){ toast('من فضلك كمّل كل البيانات الأول 🙏'); return; }
+
+  var phoneRegex = /^01[0125][0-9]{8}$/;
+  if(!phoneRegex.test(p)){ toast('من فضلك أدخل رقم واتساب صحيح (مثال: 01012345678) 📱'); return; }
+
+  // إرسال البيانات مباشرة للشيت
+  var formData = new FormData(form);
+  fetch(scriptURL, { method: 'POST', body: formData })
+    .then(function(response){
+      form.hidden = true;
+      successWrap.hidden = false;
+      burst(formCard, 42);
+      toast('تم إرسال أمنيتك بنجاح للمصباح! 🪔✨');
+    })
+    .catch(function(error){ toast('حدث خطأ، حاول مرة أخرى'); });
 });
+
 document.getElementById('againBtn').addEventListener('click',function(){
   form.reset();successWrap.hidden=true;form.hidden=false;
 });
